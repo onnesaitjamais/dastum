@@ -99,6 +99,17 @@ func (l *Logger) Critical(msg string, ctx ...interface{}) {
 	l.log(CriticalLevel, msg, ctx...)
 }
 
+// Close AFAIRE
+func (l *Logger) Close() {
+	if err := l.output.Close(); err != nil {
+		fmt.Fprintf( ///////////////////////////////////////////////////////////////////////////////////////////////////
+			os.Stderr,
+			"Error when closing the logger >>> %s\n",
+			err,
+		)
+	}
+}
+
 /*
 ######################################################################################################## @(°_°)@ #######
 */
