@@ -1,0 +1,13 @@
+### https://github.com/golangci/golangci-lint
+###------------------------------------------
+
+linters:
+  enable-all: true
+  disable:
+    - funlen
+    - gochecknoglobals
+    - godot
+    - godox
+    - gomnd
+    - gosec
+    - testpackage
