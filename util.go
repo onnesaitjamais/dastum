@@ -15,6 +15,8 @@ import (
 	"fmt"
 	mathrand "math/rand"
 	"os"
+	"strconv"
+	"time"
 )
 
 // FileExists vérifie l'existence d'un fichier.
@@ -77,6 +79,16 @@ func NewUUID() string {
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	return fmt.Sprintf("%x-%x-%x-%x-%x", b[0:4], b[4:6], b[6:8], b[8:10], b[10:])
+}
+
+// UnixToTime AFAIRE
+func UnixToTime(unix string) (time.Time, error) {
+	ts, err := strconv.ParseInt(unix, 0, 64)
+	if err != nil {
+		ts = 0
+	}
+
+	return time.Unix(ts, 0), err
 }
 
 /*
